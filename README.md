@@ -44,7 +44,7 @@ The following technologies are used in this application:
     "username": "employee1",
     "password": "password123"
 }
-
+```
 ### 2. Calculate Payable Amount
 **Endpoint**: `POST /api/calculate`
 
@@ -58,19 +58,22 @@ Authorization: Bearer <token>
     "billingDetails": {
         "items": [
             {
-                "name": "TV",
-                "price": 120,
-                "isGrocery": false
-            },
+                "name": "C",
+                "price": 150,
             {
-                "name": "Milk",
-                "price": 80,
-                "isGrocery": true
+                "name": "B",
+                "price": 100
             }
         ],
         "originalCurrency": "INR",
-        "targetCurrency": "USD"
+        "targetCurrency": "INR"
     }
+}
+```
+**Response**
+```json
+{
+    "payableAmount": 235
 }
 ```
 
@@ -81,29 +84,39 @@ Here are the predefined users with their credentials and roles:
 | Username	| Password	| Role	| Tenure |
 | ------------- | ------------- | ------------- | ------------- |
 | employee1 |password123	| EMPLOYEE | 3 years |
+| employee2 |password1234	| EMPLOYEE | 3 years |
 | affiliate	| affiliate1234	| AFFILIATE	| 1 year |
-| customer | customer123	| CUSTOMER | 3 years |
-| customer2	| customer1234	| CUSTOMER	| 1 year |
+| customer | customer123	| CUSTOMER | 1 years |
+| customer2	| customer1234	| CUSTOMER	| 3 year |
 
 
-Example Products:
+**Example Products**:
+
 | Item Name	| Price	| Category |
 | ------------- | ------------- | ------------- |
 | A | 120	| Grocery|
-| B |80 | non-grocery|
-| C | 1000	| Grocery|
-| D | 50	| Non-grocery |
+| B | 100 | non-grocery|
+| C | 150	| Grocery|
+| D | 200	| Non-grocery |
 
 
 ## Running the Application
 
+**1. Clone the repository**
 ```http
 git clone https://github.com/your-repo/currency-exchange-app.git
-
+```
+**2. Navigate to the project directory:**
+```http
 cd currency-exchange-app
+```
 
+**3. Create Executable**
+```http
 mvn clean install
-
+```
+**4.Run the application using Maven**
+```http
 mvn spring-boot:run
 ```
 
